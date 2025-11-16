@@ -1,9 +1,10 @@
 package com.mtcsrht.bgremovebackend.api.controller;
 
 
-import com.mtcsrht.bgremovebackend.api.model.Dto.AuthResponse;
-import com.mtcsrht.bgremovebackend.api.model.Dto.LoginRequest;
-import com.mtcsrht.bgremovebackend.api.model.Dto.RegisterRequest;
+import com.mtcsrht.bgremovebackend.api.model.Dto.Auth.AuthResponse;
+import com.mtcsrht.bgremovebackend.api.model.Dto.Auth.LoginRequest;
+import com.mtcsrht.bgremovebackend.api.model.Dto.Auth.MeResponse;
+import com.mtcsrht.bgremovebackend.api.model.Dto.Auth.RegisterRequest;
 import com.mtcsrht.bgremovebackend.api.model.User;
 import com.mtcsrht.bgremovebackend.api.repository.UserRepository;
 import com.mtcsrht.bgremovebackend.api.service.JwtService;
@@ -35,8 +36,15 @@ public class AuthController {
     }
 
     @PostMapping("/me")
-    public User me(Authentication authentication) {
-        return (User) authentication.getPrincipal();
+    public ResponseEntity<MeResponse> me(Authentication authentication) {
+        if (authentication == null || !(authentication.getPrincipal() instanceof User user)){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        MeResponse body = new MeResponse();
+        body.setId(user.getId());
+        body.setUsername(user.getUsername());
+        body.setEmail(user.getEmail());
+        return ResponseEntity.ok(body);
     }
 
     @PostMapping("/register")
