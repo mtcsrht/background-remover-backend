@@ -9,26 +9,17 @@ public class Picture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String path;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(nullable = false)
+    private String objectKey;
+
     public Picture(){}
 
-    public Picture(String path){
-        this.path = path;
-    }
     public Long getId() {
         return id;
-    }
-    public String getpath() {
-        return path;
-    }
-    public void setpath(String path) {
-        this.path = path;
     }
     public User getUser() {
         return user;
@@ -37,4 +28,11 @@ public class Picture {
         this.user = user;
     }
 
+    public String getObjectKey() {
+        return objectKey;
+    }
+
+    public void setObjectKey(String objectKey) {
+        this.objectKey = objectKey;
+    }
 }
