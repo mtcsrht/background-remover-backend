@@ -22,7 +22,10 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private static final RequestMatcher EXCLUDED_PATHS =
             new OrRequestMatcher(
-                    PathPatternRequestMatcher.withDefaults().matcher("/api/auth/**"),
+                    PathPatternRequestMatcher.withDefaults().matcher("/api/auth/register"),
+                    PathPatternRequestMatcher.withDefaults().matcher("/api/auth/login"),
+                    PathPatternRequestMatcher.withDefaults().matcher("/api/auth/refresh"),
+                    PathPatternRequestMatcher.withDefaults().matcher("/api/auth/logout"),
                     PathPatternRequestMatcher.withDefaults().matcher("/swagger-ui/**")
             );
     private final JwtService jwtService;
