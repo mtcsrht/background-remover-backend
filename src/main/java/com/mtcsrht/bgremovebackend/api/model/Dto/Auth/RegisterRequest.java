@@ -1,4 +1,4 @@
-package com.mtcsrht.bgremovebackend.api.model.Dto;
+package com.mtcsrht.bgremovebackend.api.model.Dto.Auth;
 
 public class RegisterRequest {
     private String username;

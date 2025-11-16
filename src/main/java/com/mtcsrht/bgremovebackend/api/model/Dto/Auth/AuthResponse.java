@@ -1,4 +1,4 @@
-package com.mtcsrht.bgremovebackend.api.model.Dto;
+package com.mtcsrht.bgremovebackend.api.model.Dto.Auth;
 
 public class AuthResponse {
     private final String accessToken;

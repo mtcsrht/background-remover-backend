@@ -1,4 +1,4 @@
-package com.mtcsrht.bgremovebackend.api.model.Dto;
+package com.mtcsrht.bgremovebackend.api.model.Dto.Auth;
 
 public class LoginRequest {
     private String email;
@@ -8,6 +8,7 @@ public class LoginRequest {
         this.email = email;
         this.password = password;
     }
+    public LoginRequest() {}
 
     public String getEmail() {
         return email;
