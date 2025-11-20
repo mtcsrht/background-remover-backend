@@ -3,6 +3,7 @@ package com.mtcsrht.bgremovebackend.api.service;
 import com.mtcsrht.bgremovebackend.api.model.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -13,6 +14,7 @@ import java.util.Map;
 
 @Service
 public class JwtService {
+    // DEVELPOMENT
     private static final String SECRET = "super-secret-and-long-jwt-key-change-me-1234567890";
 
 
