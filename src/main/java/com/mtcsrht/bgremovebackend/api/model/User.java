@@ -28,6 +28,7 @@ public class User {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @JsonIgnore
     private List<Picture> pictures = new ArrayList<>();
 
     public  void addPicture(Picture picture){
